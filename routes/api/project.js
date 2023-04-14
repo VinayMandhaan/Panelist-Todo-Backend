@@ -24,9 +24,9 @@ router.post("/", auth, async (req, res) => {
     }
 });
 
-router.get("/user/:id", auth, async (req, res) => {
+router.get("/user", auth, async (req, res) => {
     try {
-      const project = await Project.find({ user: req.params.id }).populate("user")
+      const project = await Project.find({ user: req.user.id }).populate("user").populate('taskId')
       return res.json({ project, status: 200 });
     } catch (err) {
       console.log(err.message);
@@ -53,7 +53,7 @@ router.post('/update/:id', auth, async (req, res) => {
     const { name, status, description } = req.body
     try {
       var project = await Project.findById(req.params.id);
-      if (!task) {
+      if (!project) {
         return res.json({ msg: 'No Project Found' })
       }
       project.name = name ? name : project.name;
@@ -61,7 +61,7 @@ router.post('/update/:id', auth, async (req, res) => {
       project.description = description ? description : project.description;
 
       await project.save();
-      return res.json({ msg: "Project Updated", task });
+      return res.json({ msg: "Project Updated", project });
   
     } catch (err) {
       console.log(err)
