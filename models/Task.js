@@ -9,7 +9,8 @@ const TaskSchema = new mongoose.Schema({
         type: String,
     },
     status: {
-        type: Boolean
+        type: Boolean,
+        default:false
     },
     dueDate: {
         type: Date
@@ -18,7 +19,8 @@ const TaskSchema = new mongoose.Schema({
         type: String
     },
     reminder: {
-        type: Boolean
+        type: Boolean,
+        default:false
     }
 })
 

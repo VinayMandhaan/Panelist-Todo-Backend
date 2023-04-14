@@ -24,9 +24,9 @@ router.post("/", auth, async (req, res) => {
     }
 });
 
-router.get("/user/:id", auth, async (req, res) => {
+router.get("/user", auth, async (req, res) => {
     try {
-      const task = await Task.find({ user: req.params.id }).populate("user")
+      const task = await Task.find({ user: req.user.id }).populate("user")
       return res.json({ task, status: 200 });
     } catch (err) {
       console.log(err.message);
