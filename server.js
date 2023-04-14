@@ -20,6 +20,9 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/auth', require('./routes/api/task'))
+app.use('/api/auth', require('./routes/api/project'))
+
 
 
 app.listen(PORT, () => {
