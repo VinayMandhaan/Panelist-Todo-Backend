@@ -7,7 +7,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-// GET USER
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -18,7 +17,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// GET USERS
 router.get("/users", async (req, res) => {
   try {
     const user = await User.find().select("-password");
@@ -29,7 +27,6 @@ router.get("/users", async (req, res) => {
   }
 });
 
-// LOGIN
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -69,7 +66,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//REGISTER
 router.post(
   "/register",
   async (req, res) => {

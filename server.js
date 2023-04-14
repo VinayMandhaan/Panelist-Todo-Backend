@@ -19,6 +19,9 @@ app.get("/", (req, res) => {
     res.send("API Running");
 });
 
-const server = app.listen(PORT, () => {
+app.use('/api/auth', require('./routes/api/auth'))
+
+
+app.listen(PORT, () => {
     console.log(`Server Started on Port ${PORT}`);
 });
