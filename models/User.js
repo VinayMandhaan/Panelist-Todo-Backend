@@ -11,6 +11,9 @@ const UserSchema = new mongoose.Schema({
     },
     fullName: {
         type: String
+    },
+    pushToken: {
+        type: String
     }
 })
 
