@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const config = require('config')
-const db = config.get('mongodb+srv://vinay:vinay.123@cluster0.ise0a1t.mongodb.net/test')
+const db = 'mongodb+srv://vinay:vinay.123@cluster0.ise0a1t.mongodb.net/test'
 
 
 const connectDB = async () => {
