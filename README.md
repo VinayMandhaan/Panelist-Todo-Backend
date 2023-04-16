@@ -7,5 +7,5 @@
 ### To run the server, use the following commands.
 
 * Clone the code
-* Run, yarn add
-* Run, yarn server
+* Run yarn add
+* Run yarn server
